@@ -1,8 +1,4 @@
-import json
-import pathlib
-
 import loguru
-import openai
 
 from constant.prompt_injection import PromptInjection
 from context_infer import ContextInfer
@@ -15,14 +11,6 @@ from strategy.framework_generation import FRAMEWORK_GENERATION_STRATEGY
 from strategy.separator_generation import SEPARATOR_GENERATOR_LIST
 
 logger = loguru.logger
-
-# load config file from root path
-config_file_path = pathlib.Path("./config.json")
-# read config file
-config = json.load(open(config_file_path))
-
-# init openai api key
-openai.api_key = config["openai_key"]
 
 # try times
 try_times = 3

@@ -1,13 +1,9 @@
-import json
-import pathlib
-
 import loguru
-import openai
 
 from constant.prompt_injection import PromptInjection
 from context_infer import ContextInfer
 from harness.base_harness import Harness
-from harness.demo_translator_harness import TranslatorHarness
+from harness.knostic_demo_travel_assistant import TravelAssistantHarness
 from intention.base_intention import Intention
 from intention.write_code import WriteCode
 from strategy.disruptor_generation import DISRUPTOR_GENERATOR_LIST
@@ -15,14 +11,6 @@ from strategy.framework_generation import FRAMEWORK_GENERATION_STRATEGY
 from strategy.separator_generation import SEPARATOR_GENERATOR_LIST
 
 logger = loguru.logger
-
-# load config file from root path
-config_file_path = pathlib.Path("./config.json")
-# read config file
-config = json.load(open(config_file_path))
-
-# init openai api key
-openai.api_key = config["openai_key"]
 
 # try times
 try_times = 3
@@ -77,7 +65,7 @@ def main():
     write_code_intention = WriteCode()
 
     # init prompt injection harness
-    application_harness = TranslatorHarness()
+    application_harness = TravelAssistantHarness()
 
     # begin injection
     is_success, injected_prompt = inject(write_code_intention, application_harness)

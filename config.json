@@ -1,0 +1,5 @@
+{
+  "openai_key": "OPENAI_KEY_HERE",
+  "knostic_gw_url": "https://api-gw-dev-research.knostic.cloud/api/v1.0/openai/v1",
+  "knostic_key":  "KNOSTIC_KEY_HERE"
+}
